@@ -7,45 +7,32 @@ The check_and_remount.sh script is a Bash script designed to check the status of
 **Features**
 
 Checks each mount point defined in /etc/fstab.
-
 Attempts to remount any unmounted file systems.
-
 Provides real-time logs indicating mount status.
-
 Implements a timeout for remount attempts to avoid system hangs.
-
 Logs timestamps for troubleshooting and audit purposes.
 
 **Prerequisites**
 
 Before running the script, ensure:
-
 You have root or sudo privileges to mount file systems.
-
 The file /etc/fstab is correctly configured with valid mount points.
-
 The mountpoint, awk, and timeout commands are available on the system.
 
 **Usage**
 
 Clone the repository or copy the script to your local machine.
-
 Grant execution permissions:
-
 chmod +x check_and_remount.sh
 
 Run the script:
-
 sudo ./check_and_remount.sh
 
 **Script Breakdown**
 
 Reads mount points from /etc/fstab, ignoring comments and empty lines.
-
 Iterates through each mount point and checks if it is currently mounted.
-
 If a mount point is missing, it attempts to remount it using the mount command with a 10-second timeout.
-
 Logs success, failure, or already mounted status.
 
 **Example Output**
@@ -63,11 +50,9 @@ Logs success, failure, or already mounted status.
 **Automation**
 
 To schedule periodic checks, add a cron job:
-
 sudo crontab -e
 
 Add the following line to check every hour:
-
 0 * * * * /path/to/check_and_remount.sh >> /var/log/check_and_remount.log 2>&1
 
 **License**
